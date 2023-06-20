@@ -6,7 +6,7 @@ export const LayoutContainer = styled.div`
   margin: 5rem auto;
   padding: 2.5rem;
 
-  background: ${(props) => props.theme["white"]};
+  background: ${(props) => props.theme["linen"]};
   border-radius: 8px;
 
   display: flex;

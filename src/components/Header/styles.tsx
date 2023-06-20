@@ -24,14 +24,14 @@ export const NavContainer = styled.nav`
     border-bottom: 3px solid transparent;
     width: 2rem;
     height: 2rem;
-    color: ${(props) => props.theme["secondary"]};
+    color: ${(props) => props.theme["darkGreen"]};
     &:hover {
-      border-bottom: 3px solid ${(props) => props.theme["secondary"]};
+      border-bottom: 3px solid ${(props) => props.theme["darkGreen"]};
     }
     &.active {
-      color: ${(props) => props.theme["primary"]};
+      color: ${(props) => props.theme["sinopia"]};
       &:hover {
-        border-bottom: 3px solid ${(props) => props.theme["primary"]};
+        border-bottom: 3px solid ${(props) => props.theme["sinopia"]};
       }
     }
   }
