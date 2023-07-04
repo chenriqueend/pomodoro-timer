@@ -36,19 +36,32 @@ const BaseInput = styled.input`
   color: ${(props) => props.theme["darkGreen"]};
 
   &:focus {
-    box-shadow: none;
-    border-color: ${(props) => props.theme["linen"]};
+    background: transparent;
+    outline: none;
+    border-bottom: 2px solid ${(props) => props.theme["darkGreen"]};
   }
   &::placeholder {
-    color: ${(props) => props.theme["linen"]};
+    color: ${(props) => props.theme["darkGreen"]};
+  }
+  &:hover {
+    border-bottom: 2px solid ${(props) => props.theme["rufuous"]};
   }
 `;
 export const TaskInput = styled(BaseInput)`
   flex: 1;
+
+  &::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
 `;
 
 export const MinutesAmount = styled(BaseInput)`
   width: 4rem;
+
+  &::-webkit-inner-spin-button,
+  -webkit-outer-spin-button {
+    background-color: ${(props) => props.theme["darkGreen"]};
+  }
 `;
 
 export const CountDownContainer = styled.div`
