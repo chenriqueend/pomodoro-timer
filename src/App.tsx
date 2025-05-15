@@ -3,13 +3,16 @@ import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Router";
 import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
+import { PomodoroHistoryProvider } from "./PomodoroHistoryContext";
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <PomodoroHistoryProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </PomodoroHistoryProvider>
       <GlobalStyle />
     </ThemeProvider>
   );

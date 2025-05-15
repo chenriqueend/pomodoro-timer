@@ -1,6 +1,9 @@
 import { HistoryContainer, HistoryList } from "./styles";
+import { usePomodoroHistory } from "../../PomodoroHistoryContext";
 
 export function History() {
+  const { tasks } = usePomodoroHistory();
+
   return (
     <HistoryContainer>
       <h1>My historic</h1>
@@ -15,42 +18,20 @@ export function History() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>along 2 mounths</td>
-              <td>Finished</td>
-            </tr>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>along 2 mounths</td>
-              <td>Finished</td>
-            </tr>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>along 2 mounths</td>
-              <td>Finished</td>
-            </tr>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>along 2 mounths</td>
-              <td>Finished</td>
-            </tr>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>along 2 mounths</td>
-              <td>Finished</td>
-            </tr>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>along 2 mounths</td>
-              <td>Finished</td>
-            </tr>
+            {tasks.length === 0 ? (
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>No tasks yet</td>
+              </tr>
+            ) : (
+              tasks.map((task) => (
+                <tr key={task.id}>
+                  <td>{task.name}</td>
+                  <td>{task.minutes} minutes</td>
+                  <td>{new Date(task.start).toLocaleString()}</td>
+                  <td>{task.status === "finished" ? "Finished" : "Open"}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </HistoryList>
